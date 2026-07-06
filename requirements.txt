@@ -1,0 +1,17 @@
+# Core
+numpy>=1.24
+scipy>=1.10
+pyyaml>=6.0
+torch>=2.1
+
+# Data layer
+minari[hf,hdf5]>=0.5.0       # hf: datasets live on HuggingFace; hdf5: file reader
+gymnasium>=0.29
+gymnasium-robotics>=1.2      # PointMaze / Adroit environments
+
+# Analysis / plotting
+scikit-learn>=1.3
+matplotlib>=3.7
+
+# Optional — only if you swap the self-contained CQL for the library version
+# d3rlpy>=2.6.0

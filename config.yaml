@@ -1,0 +1,64 @@
+# substrate-pilot round-one config: one dataset, one shared encoder, several
+# objectives, one extraction point, one metric battery, null-calibrated.
+
+experiment:
+  name: pointmaze_substrate_r1
+  seed: 0
+  extra_seeds: [1, 2, 3, 4]   # all seeds enter the permutation test
+
+data:
+  # Dense variant: sparse PointMaze rewards are ~all zero at pilot budgets,
+  # starving the CQL/reward arms. Sparse (umaze-v2) = later robustness check.
+  dataset_id: "D4RL/pointmaze/umaze-dense-v2"
+  split: {train: 0.7, val: 0.15, test: 0.15}
+  max_episodes: null          # null = all; set an int for a fast dry run
+  n_eval_states: 4000         # held-out probe size, fixed order
+
+encoder:
+  # The SAME architecture for every objective. Do not fork.
+  obs_dim: null               # inferred at runtime
+  hidden: [256, 256]
+  latent_dim: 128
+  activation: relu
+  layernorm: true
+
+train:
+  batch_size: 256
+  steps: 20000
+  lr: 3.0e-4
+  weight_decay: 0.0
+  device: auto                # auto | cpu | cuda
+  log_every: 500
+  checkpoint_fracs: [0.25, 0.5, 1.0]   # convergence-control snapshots
+
+bc:
+  action_head_hidden: [256]
+
+cql:
+  gamma: 0.99
+  tau: 0.005
+  alpha: 1.0
+  cql_alpha: 1.0
+  n_action_samples: 10
+  action_head_hidden: [256]
+
+jepa:
+  predictor_hidden: [256]
+  ema_decay: 0.99
+  var_coeff: 1.0              # anti-collapse variance hinge
+
+reward:
+  head_hidden: [256]          # reward-access control arm
+
+metrics:
+  cka: {kernel: linear}
+  mutual_knn: {k: 10}
+  jpca: {n_components: 6, horizon: 20}
+
+analyze:
+  # Pre-registered rule: CQL separates from the BC/JEPA pack, one-sided
+  # permutation test over objective labels across all trained encoders.
+  outlier_metric: mutual_knn
+  n_permutations: 10000
+  p_threshold: 0.05
+  out_dir: results

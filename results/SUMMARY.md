@@ -1,0 +1,743 @@
+# Round-one result
+*data: minari (D4RL/pointmaze/umaze-dense-v2, 3887 probe states)*
+
+**Verdict: WEAKENS**
+CQL is not separated from the pack (gap -0.025, permutation p=0.8754 > 0.05); objectives cluster once architecture & dim are matched.
+
+## Outlier test (pre-registered)
+- s_pack: 0.5941
+- s_outlier_to_pack: 0.6188
+- gap: -0.0248
+- p_value: 0.8754
+- p_threshold: 0.0500
+- n_permutations: 10000
+- group_sizes: {'bc': 5, 'cql': 5, 'jepa': 5, 'reward': 5}
+
+### Reward-access control (secondary)
+- gap: 0.0368, p: 0.0975
+- reward arm stays with the pack — reward access alone does not reshape geometry; a CQL separation reflects decision structure
+
+## Convergence control (geometry stability)
+- CQL-vs-pack gap by training fraction (pre-registered p only at 100%): {'25%': 0.023, '50%': -0.0131}
+- bc_seed0_ckpt25 vs its final encoder: 0.841
+- bc_seed0_ckpt50 vs its final encoder: 0.892
+- bc_seed1_ckpt25 vs its final encoder: 0.831
+- bc_seed1_ckpt50 vs its final encoder: 0.889
+- bc_seed2_ckpt25 vs its final encoder: 0.838
+- bc_seed2_ckpt50 vs its final encoder: 0.893
+- bc_seed3_ckpt25 vs its final encoder: 0.835
+- bc_seed3_ckpt50 vs its final encoder: 0.891
+- bc_seed4_ckpt25 vs its final encoder: 0.831
+- bc_seed4_ckpt50 vs its final encoder: 0.889
+- cql_seed0_ckpt25 vs its final encoder: 0.685
+- cql_seed0_ckpt50 vs its final encoder: 0.775
+- cql_seed1_ckpt25 vs its final encoder: 0.712
+- cql_seed1_ckpt50 vs its final encoder: 0.790
+- cql_seed2_ckpt25 vs its final encoder: 0.714
+- cql_seed2_ckpt50 vs its final encoder: 0.801
+- cql_seed3_ckpt25 vs its final encoder: 0.704
+- cql_seed3_ckpt50 vs its final encoder: 0.782
+- cql_seed4_ckpt25 vs its final encoder: 0.723
+- cql_seed4_ckpt50 vs its final encoder: 0.795
+- jepa_seed0_ckpt25 vs its final encoder: 0.774
+- jepa_seed0_ckpt50 vs its final encoder: 0.830
+- jepa_seed1_ckpt25 vs its final encoder: 0.773
+- jepa_seed1_ckpt50 vs its final encoder: 0.826
+- jepa_seed2_ckpt25 vs its final encoder: 0.768
+- jepa_seed2_ckpt50 vs its final encoder: 0.827
+- jepa_seed3_ckpt25 vs its final encoder: 0.764
+- jepa_seed3_ckpt50 vs its final encoder: 0.809
+- jepa_seed4_ckpt25 vs its final encoder: 0.747
+- jepa_seed4_ckpt50 vs its final encoder: 0.801
+- reward_seed0_ckpt25 vs its final encoder: 0.684
+- reward_seed0_ckpt50 vs its final encoder: 0.779
+- reward_seed1_ckpt25 vs its final encoder: 0.683
+- reward_seed1_ckpt50 vs its final encoder: 0.777
+- reward_seed2_ckpt25 vs its final encoder: 0.673
+- reward_seed2_ckpt50 vs its final encoder: 0.782
+- reward_seed3_ckpt25 vs its final encoder: 0.672
+- reward_seed3_ckpt50 vs its final encoder: 0.795
+- reward_seed4_ckpt25 vs its final encoder: 0.684
+- reward_seed4_ckpt50 vs its final encoder: 0.785
+
+## Effective dimensionality & rotational structure
+- **bc_seed0**: PR=5.32, rot_r2=0.000, rot_frac=0.000, freq=0.086
+- **bc_seed1**: PR=6.27, rot_r2=0.000, rot_frac=0.000, freq=0.079
+- **bc_seed2**: PR=5.68, rot_r2=0.000, rot_frac=0.000, freq=0.104
+- **bc_seed3**: PR=5.34, rot_r2=0.000, rot_frac=0.000, freq=0.114
+- **bc_seed4**: PR=6.02, rot_r2=0.000, rot_frac=0.000, freq=0.116
+- **cql_seed0**: PR=3.91, rot_r2=0.036, rot_frac=0.223, freq=0.119
+- **cql_seed1**: PR=3.73, rot_r2=0.026, rot_frac=0.101, freq=0.161
+- **cql_seed2**: PR=3.97, rot_r2=0.028, rot_frac=0.155, freq=0.132
+- **cql_seed3**: PR=3.90, rot_r2=0.015, rot_frac=0.062, freq=0.138
+- **cql_seed4**: PR=4.49, rot_r2=0.061, rot_frac=0.288, freq=0.120
+- **jepa_seed0**: PR=5.75, rot_r2=0.002, rot_frac=0.054, freq=0.051
+- **jepa_seed1**: PR=5.27, rot_r2=0.011, rot_frac=0.209, freq=0.051
+- **jepa_seed2**: PR=6.39, rot_r2=0.003, rot_frac=0.086, freq=0.053
+- **jepa_seed3**: PR=6.41, rot_r2=0.006, rot_frac=0.062, freq=0.046
+- **jepa_seed4**: PR=4.82, rot_r2=0.000, rot_frac=0.000, freq=0.104
+- **null_gaussian**: PR=123.91, rot_r2=0.001, rot_frac=0.002, freq=0.057
+- **null_random_seed0**: PR=4.65, rot_r2=0.000, rot_frac=0.000, freq=0.094
+- **null_random_seed1**: PR=5.23, rot_r2=0.047, rot_frac=0.496, freq=0.063
+- **null_random_seed2**: PR=5.24, rot_r2=0.038, rot_frac=0.368, freq=0.067
+- **null_random_seed3**: PR=5.38, rot_r2=0.033, rot_frac=0.431, freq=0.052
+- **null_random_seed4**: PR=4.95, rot_r2=0.064, rot_frac=0.496, freq=0.072
+- **reward_seed0**: PR=2.33, rot_r2=0.000, rot_frac=0.000, freq=0.150
+- **reward_seed1**: PR=2.28, rot_r2=0.000, rot_frac=0.000, freq=0.154
+- **reward_seed2**: PR=2.40, rot_r2=0.000, rot_frac=0.000, freq=0.234
+- **reward_seed3**: PR=2.51, rot_r2=0.000, rot_frac=0.000, freq=0.136
+- **reward_seed4**: PR=2.50, rot_r2=0.000, rot_frac=0.000, freq=0.232
+
+## Pairwise mutual-kNN (local structure)
+- bc_seed0|bc_seed1: 0.834
+- bc_seed0|bc_seed2: 0.843
+- bc_seed0|bc_seed3: 0.835
+- bc_seed0|bc_seed4: 0.841
+- bc_seed0|cql_seed0: 0.603
+- bc_seed0|cql_seed1: 0.616
+- bc_seed0|cql_seed2: 0.609
+- bc_seed0|cql_seed3: 0.596
+- bc_seed0|cql_seed4: 0.622
+- bc_seed0|jepa_seed0: 0.595
+- bc_seed0|jepa_seed1: 0.592
+- bc_seed0|jepa_seed2: 0.585
+- bc_seed0|jepa_seed3: 0.597
+- bc_seed0|jepa_seed4: 0.576
+- bc_seed0|null_gaussian: 0.003
+- bc_seed0|null_random_seed0: 0.577
+- bc_seed0|null_random_seed1: 0.585
+- bc_seed0|null_random_seed2: 0.574
+- bc_seed0|null_random_seed3: 0.569
+- bc_seed0|null_random_seed4: 0.579
+- bc_seed0|reward_seed0: 0.495
+- bc_seed0|reward_seed1: 0.495
+- bc_seed0|reward_seed2: 0.477
+- bc_seed0|reward_seed3: 0.482
+- bc_seed0|reward_seed4: 0.487
+- bc_seed1|bc_seed2: 0.843
+- bc_seed1|bc_seed3: 0.843
+- bc_seed1|bc_seed4: 0.844
+- bc_seed1|cql_seed0: 0.611
+- bc_seed1|cql_seed1: 0.624
+- bc_seed1|cql_seed2: 0.614
+- bc_seed1|cql_seed3: 0.602
+- bc_seed1|cql_seed4: 0.628
+- bc_seed1|jepa_seed0: 0.594
+- bc_seed1|jepa_seed1: 0.591
+- bc_seed1|jepa_seed2: 0.583
+- bc_seed1|jepa_seed3: 0.596
+- bc_seed1|jepa_seed4: 0.577
+- bc_seed1|null_gaussian: 0.003
+- bc_seed1|null_random_seed0: 0.579
+- bc_seed1|null_random_seed1: 0.592
+- bc_seed1|null_random_seed2: 0.579
+- bc_seed1|null_random_seed3: 0.574
+- bc_seed1|null_random_seed4: 0.583
+- bc_seed1|reward_seed0: 0.493
+- bc_seed1|reward_seed1: 0.495
+- bc_seed1|reward_seed2: 0.475
+- bc_seed1|reward_seed3: 0.480
+- bc_seed1|reward_seed4: 0.487
+- bc_seed2|bc_seed3: 0.835
+- bc_seed2|bc_seed4: 0.840
+- bc_seed2|cql_seed0: 0.612
+- bc_seed2|cql_seed1: 0.623
+- bc_seed2|cql_seed2: 0.617
+- bc_seed2|cql_seed3: 0.602
+- bc_seed2|cql_seed4: 0.632
+- bc_seed2|jepa_seed0: 0.602
+- bc_seed2|jepa_seed1: 0.601
+- bc_seed2|jepa_seed2: 0.592
+- bc_seed2|jepa_seed3: 0.603
+- bc_seed2|jepa_seed4: 0.585
+- bc_seed2|null_gaussian: 0.002
+- bc_seed2|null_random_seed0: 0.587
+- bc_seed2|null_random_seed1: 0.596
+- bc_seed2|null_random_seed2: 0.588
+- bc_seed2|null_random_seed3: 0.582
+- bc_seed2|null_random_seed4: 0.590
+- bc_seed2|reward_seed0: 0.502
+- bc_seed2|reward_seed1: 0.502
+- bc_seed2|reward_seed2: 0.483
+- bc_seed2|reward_seed3: 0.489
+- bc_seed2|reward_seed4: 0.494
+- bc_seed3|bc_seed4: 0.840
+- bc_seed3|cql_seed0: 0.623
+- bc_seed3|cql_seed1: 0.635
+- bc_seed3|cql_seed2: 0.626
+- bc_seed3|cql_seed3: 0.613
+- bc_seed3|cql_seed4: 0.638
+- bc_seed3|jepa_seed0: 0.601
+- bc_seed3|jepa_seed1: 0.596
+- bc_seed3|jepa_seed2: 0.585
+- bc_seed3|jepa_seed3: 0.599
+- bc_seed3|jepa_seed4: 0.579
+- bc_seed3|null_gaussian: 0.003
+- bc_seed3|null_random_seed0: 0.586
+- bc_seed3|null_random_seed1: 0.598
+- bc_seed3|null_random_seed2: 0.584
+- bc_seed3|null_random_seed3: 0.580
+- bc_seed3|null_random_seed4: 0.589
+- bc_seed3|reward_seed0: 0.496
+- bc_seed3|reward_seed1: 0.497
+- bc_seed3|reward_seed2: 0.478
+- bc_seed3|reward_seed3: 0.482
+- bc_seed3|reward_seed4: 0.489
+- bc_seed4|cql_seed0: 0.618
+- bc_seed4|cql_seed1: 0.633
+- bc_seed4|cql_seed2: 0.618
+- bc_seed4|cql_seed3: 0.610
+- bc_seed4|cql_seed4: 0.633
+- bc_seed4|jepa_seed0: 0.611
+- bc_seed4|jepa_seed1: 0.607
+- bc_seed4|jepa_seed2: 0.600
+- bc_seed4|jepa_seed3: 0.613
+- bc_seed4|jepa_seed4: 0.594
+- bc_seed4|null_gaussian: 0.003
+- bc_seed4|null_random_seed0: 0.594
+- bc_seed4|null_random_seed1: 0.604
+- bc_seed4|null_random_seed2: 0.589
+- bc_seed4|null_random_seed3: 0.587
+- bc_seed4|null_random_seed4: 0.597
+- bc_seed4|reward_seed0: 0.505
+- bc_seed4|reward_seed1: 0.506
+- bc_seed4|reward_seed2: 0.486
+- bc_seed4|reward_seed3: 0.492
+- bc_seed4|reward_seed4: 0.496
+- cql_seed0|cql_seed1: 0.781
+- cql_seed0|cql_seed2: 0.797
+- cql_seed0|cql_seed3: 0.799
+- cql_seed0|cql_seed4: 0.801
+- cql_seed0|jepa_seed0: 0.646
+- cql_seed0|jepa_seed1: 0.639
+- cql_seed0|jepa_seed2: 0.632
+- cql_seed0|jepa_seed3: 0.650
+- cql_seed0|jepa_seed4: 0.626
+- cql_seed0|null_gaussian: 0.003
+- cql_seed0|null_random_seed0: 0.635
+- cql_seed0|null_random_seed1: 0.648
+- cql_seed0|null_random_seed2: 0.633
+- cql_seed0|null_random_seed3: 0.629
+- cql_seed0|null_random_seed4: 0.645
+- cql_seed0|reward_seed0: 0.531
+- cql_seed0|reward_seed1: 0.522
+- cql_seed0|reward_seed2: 0.508
+- cql_seed0|reward_seed3: 0.507
+- cql_seed0|reward_seed4: 0.513
+- cql_seed1|cql_seed2: 0.801
+- cql_seed1|cql_seed3: 0.804
+- cql_seed1|cql_seed4: 0.805
+- cql_seed1|jepa_seed0: 0.618
+- cql_seed1|jepa_seed1: 0.606
+- cql_seed1|jepa_seed2: 0.602
+- cql_seed1|jepa_seed3: 0.619
+- cql_seed1|jepa_seed4: 0.598
+- cql_seed1|null_gaussian: 0.003
+- cql_seed1|null_random_seed0: 0.628
+- cql_seed1|null_random_seed1: 0.645
+- cql_seed1|null_random_seed2: 0.622
+- cql_seed1|null_random_seed3: 0.625
+- cql_seed1|null_random_seed4: 0.640
+- cql_seed1|reward_seed0: 0.516
+- cql_seed1|reward_seed1: 0.507
+- cql_seed1|reward_seed2: 0.496
+- cql_seed1|reward_seed3: 0.490
+- cql_seed1|reward_seed4: 0.497
+- cql_seed2|cql_seed3: 0.803
+- cql_seed2|cql_seed4: 0.817
+- cql_seed2|jepa_seed0: 0.619
+- cql_seed2|jepa_seed1: 0.611
+- cql_seed2|jepa_seed2: 0.605
+- cql_seed2|jepa_seed3: 0.631
+- cql_seed2|jepa_seed4: 0.607
+- cql_seed2|null_gaussian: 0.003
+- cql_seed2|null_random_seed0: 0.616
+- cql_seed2|null_random_seed1: 0.631
+- cql_seed2|null_random_seed2: 0.614
+- cql_seed2|null_random_seed3: 0.612
+- cql_seed2|null_random_seed4: 0.630
+- cql_seed2|reward_seed0: 0.515
+- cql_seed2|reward_seed1: 0.508
+- cql_seed2|reward_seed2: 0.498
+- cql_seed2|reward_seed3: 0.492
+- cql_seed2|reward_seed4: 0.499
+- cql_seed3|cql_seed4: 0.796
+- cql_seed3|jepa_seed0: 0.620
+- cql_seed3|jepa_seed1: 0.609
+- cql_seed3|jepa_seed2: 0.603
+- cql_seed3|jepa_seed3: 0.623
+- cql_seed3|jepa_seed4: 0.600
+- cql_seed3|null_gaussian: 0.003
+- cql_seed3|null_random_seed0: 0.626
+- cql_seed3|null_random_seed1: 0.643
+- cql_seed3|null_random_seed2: 0.622
+- cql_seed3|null_random_seed3: 0.623
+- cql_seed3|null_random_seed4: 0.635
+- cql_seed3|reward_seed0: 0.519
+- cql_seed3|reward_seed1: 0.510
+- cql_seed3|reward_seed2: 0.498
+- cql_seed3|reward_seed3: 0.493
+- cql_seed3|reward_seed4: 0.500
+- cql_seed4|jepa_seed0: 0.631
+- cql_seed4|jepa_seed1: 0.621
+- cql_seed4|jepa_seed2: 0.615
+- cql_seed4|jepa_seed3: 0.638
+- cql_seed4|jepa_seed4: 0.614
+- cql_seed4|null_gaussian: 0.003
+- cql_seed4|null_random_seed0: 0.636
+- cql_seed4|null_random_seed1: 0.653
+- cql_seed4|null_random_seed2: 0.637
+- cql_seed4|null_random_seed3: 0.636
+- cql_seed4|null_random_seed4: 0.652
+- cql_seed4|reward_seed0: 0.521
+- cql_seed4|reward_seed1: 0.513
+- cql_seed4|reward_seed2: 0.502
+- cql_seed4|reward_seed3: 0.498
+- cql_seed4|reward_seed4: 0.504
+- jepa_seed0|jepa_seed1: 0.859
+- jepa_seed0|jepa_seed2: 0.868
+- jepa_seed0|jepa_seed3: 0.855
+- jepa_seed0|jepa_seed4: 0.845
+- jepa_seed0|null_gaussian: 0.003
+- jepa_seed0|null_random_seed0: 0.639
+- jepa_seed0|null_random_seed1: 0.659
+- jepa_seed0|null_random_seed2: 0.648
+- jepa_seed0|null_random_seed3: 0.646
+- jepa_seed0|null_random_seed4: 0.650
+- jepa_seed0|reward_seed0: 0.626
+- jepa_seed0|reward_seed1: 0.631
+- jepa_seed0|reward_seed2: 0.598
+- jepa_seed0|reward_seed3: 0.617
+- jepa_seed0|reward_seed4: 0.618
+- jepa_seed1|jepa_seed2: 0.861
+- jepa_seed1|jepa_seed3: 0.840
+- jepa_seed1|jepa_seed4: 0.836
+- jepa_seed1|null_gaussian: 0.003
+- jepa_seed1|null_random_seed0: 0.636
+- jepa_seed1|null_random_seed1: 0.656
+- jepa_seed1|null_random_seed2: 0.647
+- jepa_seed1|null_random_seed3: 0.644
+- jepa_seed1|null_random_seed4: 0.646
+- jepa_seed1|reward_seed0: 0.628
+- jepa_seed1|reward_seed1: 0.635
+- jepa_seed1|reward_seed2: 0.598
+- jepa_seed1|reward_seed3: 0.615
+- jepa_seed1|reward_seed4: 0.621
+- jepa_seed2|jepa_seed3: 0.860
+- jepa_seed2|jepa_seed4: 0.859
+- jepa_seed2|null_gaussian: 0.003
+- jepa_seed2|null_random_seed0: 0.625
+- jepa_seed2|null_random_seed1: 0.647
+- jepa_seed2|null_random_seed2: 0.639
+- jepa_seed2|null_random_seed3: 0.635
+- jepa_seed2|null_random_seed4: 0.637
+- jepa_seed2|reward_seed0: 0.637
+- jepa_seed2|reward_seed1: 0.646
+- jepa_seed2|reward_seed2: 0.607
+- jepa_seed2|reward_seed3: 0.626
+- jepa_seed2|reward_seed4: 0.630
+- jepa_seed3|jepa_seed4: 0.856
+- jepa_seed3|null_gaussian: 0.002
+- jepa_seed3|null_random_seed0: 0.633
+- jepa_seed3|null_random_seed1: 0.652
+- jepa_seed3|null_random_seed2: 0.642
+- jepa_seed3|null_random_seed3: 0.641
+- jepa_seed3|null_random_seed4: 0.645
+- jepa_seed3|reward_seed0: 0.630
+- jepa_seed3|reward_seed1: 0.635
+- jepa_seed3|reward_seed2: 0.602
+- jepa_seed3|reward_seed3: 0.618
+- jepa_seed3|reward_seed4: 0.626
+- jepa_seed4|null_gaussian: 0.003
+- jepa_seed4|null_random_seed0: 0.623
+- jepa_seed4|null_random_seed1: 0.642
+- jepa_seed4|null_random_seed2: 0.633
+- jepa_seed4|null_random_seed3: 0.632
+- jepa_seed4|null_random_seed4: 0.634
+- jepa_seed4|reward_seed0: 0.641
+- jepa_seed4|reward_seed1: 0.649
+- jepa_seed4|reward_seed2: 0.610
+- jepa_seed4|reward_seed3: 0.623
+- jepa_seed4|reward_seed4: 0.632
+- null_gaussian|null_random_seed0: 0.003
+- null_gaussian|null_random_seed1: 0.003
+- null_gaussian|null_random_seed2: 0.003
+- null_gaussian|null_random_seed3: 0.003
+- null_gaussian|null_random_seed4: 0.003
+- null_gaussian|reward_seed0: 0.003
+- null_gaussian|reward_seed1: 0.003
+- null_gaussian|reward_seed2: 0.003
+- null_gaussian|reward_seed3: 0.003
+- null_gaussian|reward_seed4: 0.003
+- null_random_seed0|null_random_seed1: 0.870
+- null_random_seed0|null_random_seed2: 0.871
+- null_random_seed0|null_random_seed3: 0.864
+- null_random_seed0|null_random_seed4: 0.863
+- null_random_seed0|reward_seed0: 0.514
+- null_random_seed0|reward_seed1: 0.513
+- null_random_seed0|reward_seed2: 0.491
+- null_random_seed0|reward_seed3: 0.494
+- null_random_seed0|reward_seed4: 0.498
+- null_random_seed1|null_random_seed2: 0.857
+- null_random_seed1|null_random_seed3: 0.865
+- null_random_seed1|null_random_seed4: 0.864
+- null_random_seed1|reward_seed0: 0.525
+- null_random_seed1|reward_seed1: 0.523
+- null_random_seed1|reward_seed2: 0.500
+- null_random_seed1|reward_seed3: 0.504
+- null_random_seed1|reward_seed4: 0.509
+- null_random_seed2|null_random_seed3: 0.866
+- null_random_seed2|null_random_seed4: 0.864
+- null_random_seed2|reward_seed0: 0.524
+- null_random_seed2|reward_seed1: 0.526
+- null_random_seed2|reward_seed2: 0.502
+- null_random_seed2|reward_seed3: 0.506
+- null_random_seed2|reward_seed4: 0.511
+- null_random_seed3|null_random_seed4: 0.871
+- null_random_seed3|reward_seed0: 0.519
+- null_random_seed3|reward_seed1: 0.518
+- null_random_seed3|reward_seed2: 0.496
+- null_random_seed3|reward_seed3: 0.501
+- null_random_seed3|reward_seed4: 0.504
+- null_random_seed4|reward_seed0: 0.520
+- null_random_seed4|reward_seed1: 0.518
+- null_random_seed4|reward_seed2: 0.496
+- null_random_seed4|reward_seed3: 0.499
+- null_random_seed4|reward_seed4: 0.503
+- reward_seed0|reward_seed1: 0.807
+- reward_seed0|reward_seed2: 0.787
+- reward_seed0|reward_seed3: 0.766
+- reward_seed0|reward_seed4: 0.783
+- reward_seed1|reward_seed2: 0.786
+- reward_seed1|reward_seed3: 0.788
+- reward_seed1|reward_seed4: 0.813
+- reward_seed2|reward_seed3: 0.792
+- reward_seed2|reward_seed4: 0.799
+- reward_seed3|reward_seed4: 0.805
+
+## Pairwise CKA (global structure)
+- bc_seed0|bc_seed1: 0.951
+- bc_seed0|bc_seed2: 0.939
+- bc_seed0|bc_seed3: 0.940
+- bc_seed0|bc_seed4: 0.951
+- bc_seed0|cql_seed0: 0.218
+- bc_seed0|cql_seed1: 0.210
+- bc_seed0|cql_seed2: 0.202
+- bc_seed0|cql_seed3: 0.175
+- bc_seed0|cql_seed4: 0.236
+- bc_seed0|jepa_seed0: 0.378
+- bc_seed0|jepa_seed1: 0.363
+- bc_seed0|jepa_seed2: 0.349
+- bc_seed0|jepa_seed3: 0.383
+- bc_seed0|jepa_seed4: 0.352
+- bc_seed0|null_gaussian: 0.007
+- bc_seed0|null_random_seed0: 0.254
+- bc_seed0|null_random_seed1: 0.277
+- bc_seed0|null_random_seed2: 0.277
+- bc_seed0|null_random_seed3: 0.291
+- bc_seed0|null_random_seed4: 0.297
+- bc_seed0|reward_seed0: 0.312
+- bc_seed0|reward_seed1: 0.317
+- bc_seed0|reward_seed2: 0.377
+- bc_seed0|reward_seed3: 0.355
+- bc_seed0|reward_seed4: 0.387
+- bc_seed1|bc_seed2: 0.945
+- bc_seed1|bc_seed3: 0.938
+- bc_seed1|bc_seed4: 0.947
+- bc_seed1|cql_seed0: 0.211
+- bc_seed1|cql_seed1: 0.206
+- bc_seed1|cql_seed2: 0.202
+- bc_seed1|cql_seed3: 0.179
+- bc_seed1|cql_seed4: 0.239
+- bc_seed1|jepa_seed0: 0.406
+- bc_seed1|jepa_seed1: 0.393
+- bc_seed1|jepa_seed2: 0.375
+- bc_seed1|jepa_seed3: 0.403
+- bc_seed1|jepa_seed4: 0.382
+- bc_seed1|null_gaussian: 0.007
+- bc_seed1|null_random_seed0: 0.266
+- bc_seed1|null_random_seed1: 0.298
+- bc_seed1|null_random_seed2: 0.287
+- bc_seed1|null_random_seed3: 0.304
+- bc_seed1|null_random_seed4: 0.305
+- bc_seed1|reward_seed0: 0.344
+- bc_seed1|reward_seed1: 0.346
+- bc_seed1|reward_seed2: 0.403
+- bc_seed1|reward_seed3: 0.382
+- bc_seed1|reward_seed4: 0.415
+- bc_seed2|bc_seed3: 0.957
+- bc_seed2|bc_seed4: 0.947
+- bc_seed2|cql_seed0: 0.206
+- bc_seed2|cql_seed1: 0.203
+- bc_seed2|cql_seed2: 0.198
+- bc_seed2|cql_seed3: 0.170
+- bc_seed2|cql_seed4: 0.228
+- bc_seed2|jepa_seed0: 0.426
+- bc_seed2|jepa_seed1: 0.411
+- bc_seed2|jepa_seed2: 0.387
+- bc_seed2|jepa_seed3: 0.412
+- bc_seed2|jepa_seed4: 0.385
+- bc_seed2|null_gaussian: 0.007
+- bc_seed2|null_random_seed0: 0.253
+- bc_seed2|null_random_seed1: 0.286
+- bc_seed2|null_random_seed2: 0.275
+- bc_seed2|null_random_seed3: 0.294
+- bc_seed2|null_random_seed4: 0.296
+- bc_seed2|reward_seed0: 0.335
+- bc_seed2|reward_seed1: 0.337
+- bc_seed2|reward_seed2: 0.399
+- bc_seed2|reward_seed3: 0.383
+- bc_seed2|reward_seed4: 0.407
+- bc_seed3|bc_seed4: 0.958
+- bc_seed3|cql_seed0: 0.235
+- bc_seed3|cql_seed1: 0.224
+- bc_seed3|cql_seed2: 0.211
+- bc_seed3|cql_seed3: 0.187
+- bc_seed3|cql_seed4: 0.251
+- bc_seed3|jepa_seed0: 0.417
+- bc_seed3|jepa_seed1: 0.417
+- bc_seed3|jepa_seed2: 0.387
+- bc_seed3|jepa_seed3: 0.401
+- bc_seed3|jepa_seed4: 0.373
+- bc_seed3|null_gaussian: 0.007
+- bc_seed3|null_random_seed0: 0.241
+- bc_seed3|null_random_seed1: 0.279
+- bc_seed3|null_random_seed2: 0.266
+- bc_seed3|null_random_seed3: 0.284
+- bc_seed3|null_random_seed4: 0.281
+- bc_seed3|reward_seed0: 0.330
+- bc_seed3|reward_seed1: 0.335
+- bc_seed3|reward_seed2: 0.391
+- bc_seed3|reward_seed3: 0.376
+- bc_seed3|reward_seed4: 0.403
+- bc_seed4|cql_seed0: 0.226
+- bc_seed4|cql_seed1: 0.222
+- bc_seed4|cql_seed2: 0.210
+- bc_seed4|cql_seed3: 0.186
+- bc_seed4|cql_seed4: 0.250
+- bc_seed4|jepa_seed0: 0.431
+- bc_seed4|jepa_seed1: 0.418
+- bc_seed4|jepa_seed2: 0.405
+- bc_seed4|jepa_seed3: 0.427
+- bc_seed4|jepa_seed4: 0.399
+- bc_seed4|null_gaussian: 0.007
+- bc_seed4|null_random_seed0: 0.272
+- bc_seed4|null_random_seed1: 0.300
+- bc_seed4|null_random_seed2: 0.291
+- bc_seed4|null_random_seed3: 0.310
+- bc_seed4|null_random_seed4: 0.306
+- bc_seed4|reward_seed0: 0.325
+- bc_seed4|reward_seed1: 0.337
+- bc_seed4|reward_seed2: 0.395
+- bc_seed4|reward_seed3: 0.383
+- bc_seed4|reward_seed4: 0.406
+- cql_seed0|cql_seed1: 0.882
+- cql_seed0|cql_seed2: 0.905
+- cql_seed0|cql_seed3: 0.895
+- cql_seed0|cql_seed4: 0.923
+- cql_seed0|jepa_seed0: 0.219
+- cql_seed0|jepa_seed1: 0.275
+- cql_seed0|jepa_seed2: 0.236
+- cql_seed0|jepa_seed3: 0.257
+- cql_seed0|jepa_seed4: 0.181
+- cql_seed0|null_gaussian: 0.005
+- cql_seed0|null_random_seed0: 0.480
+- cql_seed0|null_random_seed1: 0.471
+- cql_seed0|null_random_seed2: 0.497
+- cql_seed0|null_random_seed3: 0.441
+- cql_seed0|null_random_seed4: 0.393
+- cql_seed0|reward_seed0: 0.125
+- cql_seed0|reward_seed1: 0.130
+- cql_seed0|reward_seed2: 0.159
+- cql_seed0|reward_seed3: 0.148
+- cql_seed0|reward_seed4: 0.139
+- cql_seed1|cql_seed2: 0.881
+- cql_seed1|cql_seed3: 0.918
+- cql_seed1|cql_seed4: 0.911
+- cql_seed1|jepa_seed0: 0.198
+- cql_seed1|jepa_seed1: 0.246
+- cql_seed1|jepa_seed2: 0.219
+- cql_seed1|jepa_seed3: 0.227
+- cql_seed1|jepa_seed4: 0.174
+- cql_seed1|null_gaussian: 0.005
+- cql_seed1|null_random_seed0: 0.535
+- cql_seed1|null_random_seed1: 0.527
+- cql_seed1|null_random_seed2: 0.555
+- cql_seed1|null_random_seed3: 0.498
+- cql_seed1|null_random_seed4: 0.447
+- cql_seed1|reward_seed0: 0.122
+- cql_seed1|reward_seed1: 0.117
+- cql_seed1|reward_seed2: 0.139
+- cql_seed1|reward_seed3: 0.123
+- cql_seed1|reward_seed4: 0.118
+- cql_seed2|cql_seed3: 0.879
+- cql_seed2|cql_seed4: 0.908
+- cql_seed2|jepa_seed0: 0.214
+- cql_seed2|jepa_seed1: 0.258
+- cql_seed2|jepa_seed2: 0.238
+- cql_seed2|jepa_seed3: 0.276
+- cql_seed2|jepa_seed4: 0.185
+- cql_seed2|null_gaussian: 0.006
+- cql_seed2|null_random_seed0: 0.452
+- cql_seed2|null_random_seed1: 0.436
+- cql_seed2|null_random_seed2: 0.467
+- cql_seed2|null_random_seed3: 0.408
+- cql_seed2|null_random_seed4: 0.383
+- cql_seed2|reward_seed0: 0.121
+- cql_seed2|reward_seed1: 0.129
+- cql_seed2|reward_seed2: 0.174
+- cql_seed2|reward_seed3: 0.168
+- cql_seed2|reward_seed4: 0.148
+- cql_seed3|cql_seed4: 0.920
+- cql_seed3|jepa_seed0: 0.206
+- cql_seed3|jepa_seed1: 0.234
+- cql_seed3|jepa_seed2: 0.231
+- cql_seed3|jepa_seed3: 0.255
+- cql_seed3|jepa_seed4: 0.200
+- cql_seed3|null_gaussian: 0.005
+- cql_seed3|null_random_seed0: 0.534
+- cql_seed3|null_random_seed1: 0.515
+- cql_seed3|null_random_seed2: 0.542
+- cql_seed3|null_random_seed3: 0.482
+- cql_seed3|null_random_seed4: 0.423
+- cql_seed3|reward_seed0: 0.153
+- cql_seed3|reward_seed1: 0.153
+- cql_seed3|reward_seed2: 0.190
+- cql_seed3|reward_seed3: 0.163
+- cql_seed3|reward_seed4: 0.156
+- cql_seed4|jepa_seed0: 0.223
+- cql_seed4|jepa_seed1: 0.264
+- cql_seed4|jepa_seed2: 0.240
+- cql_seed4|jepa_seed3: 0.263
+- cql_seed4|jepa_seed4: 0.198
+- cql_seed4|null_gaussian: 0.006
+- cql_seed4|null_random_seed0: 0.530
+- cql_seed4|null_random_seed1: 0.527
+- cql_seed4|null_random_seed2: 0.539
+- cql_seed4|null_random_seed3: 0.500
+- cql_seed4|null_random_seed4: 0.436
+- cql_seed4|reward_seed0: 0.147
+- cql_seed4|reward_seed1: 0.144
+- cql_seed4|reward_seed2: 0.176
+- cql_seed4|reward_seed3: 0.156
+- cql_seed4|reward_seed4: 0.150
+- jepa_seed0|jepa_seed1: 0.878
+- jepa_seed0|jepa_seed2: 0.900
+- jepa_seed0|jepa_seed3: 0.840
+- jepa_seed0|jepa_seed4: 0.861
+- jepa_seed0|null_gaussian: 0.007
+- jepa_seed0|null_random_seed0: 0.379
+- jepa_seed0|null_random_seed1: 0.417
+- jepa_seed0|null_random_seed2: 0.381
+- jepa_seed0|null_random_seed3: 0.416
+- jepa_seed0|null_random_seed4: 0.430
+- jepa_seed0|reward_seed0: 0.624
+- jepa_seed0|reward_seed1: 0.645
+- jepa_seed0|reward_seed2: 0.673
+- jepa_seed0|reward_seed3: 0.635
+- jepa_seed0|reward_seed4: 0.672
+- jepa_seed1|jepa_seed2: 0.858
+- jepa_seed1|jepa_seed3: 0.803
+- jepa_seed1|jepa_seed4: 0.805
+- jepa_seed1|null_gaussian: 0.007
+- jepa_seed1|null_random_seed0: 0.428
+- jepa_seed1|null_random_seed1: 0.451
+- jepa_seed1|null_random_seed2: 0.450
+- jepa_seed1|null_random_seed3: 0.480
+- jepa_seed1|null_random_seed4: 0.509
+- jepa_seed1|reward_seed0: 0.635
+- jepa_seed1|reward_seed1: 0.657
+- jepa_seed1|reward_seed2: 0.629
+- jepa_seed1|reward_seed3: 0.612
+- jepa_seed1|reward_seed4: 0.655
+- jepa_seed2|jepa_seed3: 0.870
+- jepa_seed2|jepa_seed4: 0.917
+- jepa_seed2|null_gaussian: 0.007
+- jepa_seed2|null_random_seed0: 0.396
+- jepa_seed2|null_random_seed1: 0.430
+- jepa_seed2|null_random_seed2: 0.426
+- jepa_seed2|null_random_seed3: 0.442
+- jepa_seed2|null_random_seed4: 0.465
+- jepa_seed2|reward_seed0: 0.695
+- jepa_seed2|reward_seed1: 0.733
+- jepa_seed2|reward_seed2: 0.713
+- jepa_seed2|reward_seed3: 0.696
+- jepa_seed2|reward_seed4: 0.727
+- jepa_seed3|jepa_seed4: 0.871
+- jepa_seed3|null_gaussian: 0.008
+- jepa_seed3|null_random_seed0: 0.422
+- jepa_seed3|null_random_seed1: 0.442
+- jepa_seed3|null_random_seed2: 0.420
+- jepa_seed3|null_random_seed3: 0.462
+- jepa_seed3|null_random_seed4: 0.491
+- jepa_seed3|reward_seed0: 0.611
+- jepa_seed3|reward_seed1: 0.663
+- jepa_seed3|reward_seed2: 0.710
+- jepa_seed3|reward_seed3: 0.674
+- jepa_seed3|reward_seed4: 0.691
+- jepa_seed4|null_gaussian: 0.006
+- jepa_seed4|null_random_seed0: 0.342
+- jepa_seed4|null_random_seed1: 0.363
+- jepa_seed4|null_random_seed2: 0.368
+- jepa_seed4|null_random_seed3: 0.394
+- jepa_seed4|null_random_seed4: 0.404
+- jepa_seed4|reward_seed0: 0.746
+- jepa_seed4|reward_seed1: 0.782
+- jepa_seed4|reward_seed2: 0.740
+- jepa_seed4|reward_seed3: 0.719
+- jepa_seed4|reward_seed4: 0.757
+- null_gaussian|null_random_seed0: 0.006
+- null_gaussian|null_random_seed1: 0.006
+- null_gaussian|null_random_seed2: 0.007
+- null_gaussian|null_random_seed3: 0.007
+- null_gaussian|null_random_seed4: 0.007
+- null_gaussian|reward_seed0: 0.004
+- null_gaussian|reward_seed1: 0.004
+- null_gaussian|reward_seed2: 0.005
+- null_gaussian|reward_seed3: 0.005
+- null_gaussian|reward_seed4: 0.005
+- null_random_seed0|null_random_seed1: 0.942
+- null_random_seed0|null_random_seed2: 0.949
+- null_random_seed0|null_random_seed3: 0.920
+- null_random_seed0|null_random_seed4: 0.883
+- null_random_seed0|reward_seed0: 0.262
+- null_random_seed0|reward_seed1: 0.289
+- null_random_seed0|reward_seed2: 0.306
+- null_random_seed0|reward_seed3: 0.258
+- null_random_seed0|reward_seed4: 0.273
+- null_random_seed1|null_random_seed2: 0.933
+- null_random_seed1|null_random_seed3: 0.938
+- null_random_seed1|null_random_seed4: 0.899
+- null_random_seed1|reward_seed0: 0.285
+- null_random_seed1|reward_seed1: 0.306
+- null_random_seed1|reward_seed2: 0.323
+- null_random_seed1|reward_seed3: 0.269
+- null_random_seed1|reward_seed4: 0.293
+- null_random_seed2|null_random_seed3: 0.921
+- null_random_seed2|null_random_seed4: 0.893
+- null_random_seed2|reward_seed0: 0.303
+- null_random_seed2|reward_seed1: 0.333
+- null_random_seed2|reward_seed2: 0.328
+- null_random_seed2|reward_seed3: 0.291
+- null_random_seed2|reward_seed4: 0.310
+- null_random_seed3|null_random_seed4: 0.931
+- null_random_seed3|reward_seed0: 0.302
+- null_random_seed3|reward_seed1: 0.320
+- null_random_seed3|reward_seed2: 0.301
+- null_random_seed3|reward_seed3: 0.260
+- null_random_seed3|reward_seed4: 0.291
+- null_random_seed4|reward_seed0: 0.340
+- null_random_seed4|reward_seed1: 0.360
+- null_random_seed4|reward_seed2: 0.335
+- null_random_seed4|reward_seed3: 0.282
+- null_random_seed4|reward_seed4: 0.331
+- reward_seed0|reward_seed1: 0.973
+- reward_seed0|reward_seed2: 0.883
+- reward_seed0|reward_seed3: 0.831
+- reward_seed0|reward_seed4: 0.923
+- reward_seed1|reward_seed2: 0.917
+- reward_seed1|reward_seed3: 0.883
+- reward_seed1|reward_seed4: 0.951
+- reward_seed2|reward_seed3: 0.951
+- reward_seed2|reward_seed4: 0.978
+- reward_seed3|reward_seed4: 0.956
